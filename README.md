@@ -52,14 +52,13 @@ This project maps the academic baseline corpus (**Yada et al. 2022**) onto CCPA 
 ```mermaid
 flowchart TD
     A[Yada-2022 Raw Corpus] --> C[Remap Academic -> 13 CCPA classes]
-    B[Kaggle Indian Compliance Data] --> D[Merge Datasets]
+    B[Kaggle Data] --> D[Merge Datasets]
     C --> D
     D --> E[Global De-duplication Leakage Fix]
     E --> F[22 Interpretable NLP Features + TF-IDF]
     F --> G[ColumnTransformer Pipeline]
     G --> H[SMOTE fit inside CV Folds]
-    H --> I[Model Zoo Evaluation]
-    I --> J[Optuna-Tuned XGBoost]
+    H --> J[Optuna-Tuned XGBoost]
     J --> K[Precision Gate & Calibration Layer]
     K --> L[Export Joblib -> Streamlit App]
 ```
@@ -97,24 +96,26 @@ flowchart TD
 dark-pattern-pro/
 ├── README.md
 ├── requirements.txt
+│
 ├── notebooks/
 │   ├── 01_data_nlp_eda.ipynb         # EDA, tokenization & keyword extraction
 │   └── 02_model_tuning_export.ipynb  # Cross-validation, Optuna tuning & export
-├── src/
-│   ├── features.py         # Shared module: cleans text, POS tagger & extracts 22 features
-│   ├── collect_data.py     # Aggregates manually gathered legal compliance examples
-│   ├── build_dataset.py    # Merges data sources, remaps academic -> legal labels & de-duplicates
-│   ├── make_features.py    # Transforms text files into tabular dataset (features.csv)
-│   └── train.py            # Automated script mirror of the notebook modeling pipeline
+│
 ├── data/
-│   ├── raw/dataset_raw.tsv         # Original Yada et al. e-commerce dataset
-│   └── processed/ccpa_dataset.tsv  # Final cleaned & remapped corpus
+│   ├─ raw/
+│       ├── dataset_raw.tsv     # Yada et al. dataset
+│       └── pattern_label.csv   # dataset from kaggle
+│   └──  processed/
+│       ├── ccpa_dataset.tsv  # cleaned & remapped corpus
+│       └── features.csv # final data after feature engineering
+│
 ├── models/
-│   ├── best_multi_model.joblib     # Tuned 14-class XGBoost model
-│   ├── best_binary_model.joblib    # 2-class violation/benign model
-│   └── label_encoder.joblib        # Target Class encoder
+│   ├── best_multi_model.joblib     # tuned final model
+│   ├── best_binary_model.joblib    # benign model
+│   └── label_encoder.joblib        # target class encoder
+│
 └── app/
-    └── app.py              # Streamlit compliance dashboard
+    └── app.py              # streamlit dashboard
 ```
 
 ---
@@ -131,13 +132,6 @@ Run Jupyter Notebooks:
 ```bash
 jupyter notebook notebooks/01_data_nlp_eda.ipynb
 jupyter notebook notebooks/02_model_tuning_export.ipynb
-```
-Or run python scripts:
-```bash
-python -m src.collect_data
-python -m src.build_dataset
-python -m src.make_features
-python -m src.train
 ```
 
 ### Launch the Dashboard Local Server
