@@ -50,19 +50,24 @@ This project maps the academic baseline corpus (**Yada et al. 2022**) onto CCPA 
 ## 🗺️ Pipeline & Flowchart
 
 ```mermaid
-flowchart TD
-    A[Yada-2022 Raw Corpus] --> C[Remap Academic -> 13 CCPA classes]
-    B[Kaggle Data] --> D[Merge Datasets]
-    C --> D
-    D --> E[Global De-duplication Leakage Fix]
-    E --> F[22 Interpretable NLP Features + TF-IDF]
-    F --> G[ColumnTransformer Pipeline]
-    G --> H[SMOTE fit inside CV Folds]
-    H --> J[Optuna-Tuned XGBoost]
-    J --> K[Precision Gate & Calibration Layer]
-    K --> L[Export Joblib -> Streamlit App]
-```
+flowchart LR
 
+    A["Yada-2022 Corpus"] --> B["Label Remapping"]
+    C["Kaggle Dataset"] --> D["Dataset Merge"]
+    B --> D
+
+    D --> E["De-duplication"]
+    E --> F["NLP Features + TF-IDF"]
+    F --> G["ColumnTransformer"]
+
+    G --> H["SMOTE (CV Folds)"]
+    H --> I["Optuna-Tuned XGBoost"]
+
+    I --> J["Precision Gate"]
+    J --> K["Calibration"]
+    K --> L["Joblib Export"]
+    L --> M["Streamlit App"]
+```
 ---
 
 ## 🛠️ Advanced Techniques & Rationale (Why We Did Them)
