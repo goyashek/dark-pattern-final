@@ -16,13 +16,6 @@ A compliance auditing tool that reads website/application UI text copy (e.g., ur
 
 ---
 
-## 👨‍💻 Author & Credits
-- **Created By**: [Abhishek Goyal](https://github.com/goyashek)
-- **GitHub**: [github.com/goyashek](https://github.com/goyashek)
-- **Kaggle Source**: Indian context compliance dataset sourced from Kaggle: **[https://www.kaggle.com/datasets/dhamur/dark-patterns-user-interfaces]**
-
----
-
 ## 🇮🇳 Regulatory Context & Motivation
 
 > [!IMPORTANT]
@@ -154,6 +147,15 @@ streamlit run app/app.py
 
 ---
 
+## 👨‍💻 Author & Credits
+- **Created By**: [Abhishek Goyal](https://github.com/goyashek)
+- **GitHub**: [github.com/goyashek](https://github.com/goyashek)
+- **Kaggle Source**: Indian context compliance dataset sourced from Kaggle: **[https://www.kaggle.com/datasets/dhamur/dark-patterns-user-interfaces]**
+
+---
+
 ## ⚠️ Disclaimer
 > [!WARNING]
 > This is a **test demonstration project** and does not constitute formal legal advice. Always consult a legal professional for compliance validation.
+
+
