@@ -18,7 +18,6 @@ A compliance auditing tool that reads website/application UI text copy (e.g., ur
 
 ## 🇮🇳 Regulatory Context & Motivation
 
-> [!IMPORTANT]
 > On **30 November 2023**, India's CCPA declared **13 categories of dark patterns** illegal under the Consumer Protection Act, 2019. 
 > This tool automates the compliance review of UI text strings against these enforceable legal clauses.
 
@@ -96,24 +95,24 @@ dark-pattern-pro/
 ├── requirements.txt
 │
 ├── notebooks/
-│   ├── 01_data_nlp_eda.ipynb         # EDA, tokenization & keyword extraction
-│   └── 02_model_tuning_export.ipynb  # Cross-validation, Optuna tuning & export
+│   ├── 01_data_nlp_eda.ipynb              # EDA, tokenization & keyword extraction
+│   └── 02_model_tuning_export.ipynb       # cross-validation , optuna tuning & export
 │
 ├── data/
 │   ├─ raw/
-│       ├── dataset_raw.tsv     # Yada et al. dataset
-│       └── pattern_label.csv   # dataset from kaggle
+│       ├── dataset_raw.tsv                # Yada et al. dataset
+│       └── pattern_label.csv              # dataset from kaggle
 │   └──  processed/
-│       ├── ccpa_dataset.tsv  # cleaned & remapped corpus
-│       └── features.csv # final data after feature engineering
+│       ├── ccpa_dataset.tsv               # cleaned & remapped corpus
+│       └── features.csv                   # final data after feature engineering
 │
 ├── models/
-│   ├── best_multi_model.joblib     # tuned final model
-│   ├── best_binary_model.joblib    # benign model
-│   └── label_encoder.joblib        # target class encoder
+│   ├── best_multi_model.joblib            # tuned final model
+│   ├── best_binary_model.joblib           # benign model
+│   └── label_encoder.joblib               # target class encoder
 │
 └── app/
-    └── app.py              # streamlit dashboard
+    └── app.py                             # streamlit dashboard
 ```
 
 ---
@@ -148,7 +147,7 @@ streamlit run app/app.py
 ---
 
 ## 👨‍💻 Author & Credits
-- **Created By**: [Abhishek Goyal](https://github.com/goyashek)
+- **Created By**: [Abhishek Goyal](https://goyashek.github.io)
 - **GitHub**: [github.com/goyashek](https://github.com/goyashek)
 - **Kaggle Source**: Indian context compliance dataset sourced from Kaggle: **[https://www.kaggle.com/datasets/dhamur/dark-patterns-user-interfaces]**
 
